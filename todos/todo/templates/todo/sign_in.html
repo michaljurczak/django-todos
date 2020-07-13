@@ -1,0 +1,23 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+
+<form action="" method="POST">
+    <div class="jumbotron vertical-center row">
+        <div class="container sign-in-window">
+            {% csrf_token %}
+            {% load static %}
+            <div class="row center-item">
+                <img src="{% static 'images/todo_icon.jpg' %}" style="margin: auto" alt="todo_icon">
+            </div>
+            <input class="row center-item form-control" type="text" placeholder="Username" name="username">
+            <input class="row center-item form-control" type="password" placeholder="Password" name="password">
+            <div class="row center-button">
+                <input type="submit" class="btn btn-success" name="Sign up" value="Login"/>
+            </div>
+            <div class="row center-bottom-sign-up">
+                <p>Don't have an account? <a href="{% url 'sign_up' %}">Sign up!</a></p>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

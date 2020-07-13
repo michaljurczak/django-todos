@@ -1,0 +1,18 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<form action="" method="POST"> {% csrf_token %}
+    {{form.title}}
+    <input type="submit" name="Submit">
+</form>
+
+<ul>
+    {% for todo in todos %}
+    <li {% if todo.is_completed%} style="text-decoration: line-through;" {% endif %}>
+        <a type="checkbox" {% if todo.is_completed%}  checked {% endif %} id="{{todo.id}}"  href="{% url 'update_todo' todo_id=todo.id space=space%}">
+            {{todo}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock%}

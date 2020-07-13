@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/todo/todo.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap/css/bootstrap.css' %}">
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+            {% include 'todo/navbar.html' %}
+        {% endif %}
+        {% block content%}
+        {% endblock %}
+    </body>
+    <script src="{% static  'jQuery/jquery-3.5.1.slim.js' %}"></script>
+    <script src="{% static  'styles/bootstrap/js/bootstrap.js' %}"></script>
+</html>
